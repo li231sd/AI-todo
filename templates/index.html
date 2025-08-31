@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AI Todo List</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <!-- Custom CSS -->
+  <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
+</head>
+<body>
+  <div class="container py-5">
+    <div class="row justify-content-center">
+      <div class="col-12 col-lg-7">
+
+        <!-- Header -->
+        <header class="text-center mb-5">
+          <h1 class="fw-bold text-success mb-2">
+            <i class="fas fa-robot me-2"></i> AI Todo List
+          </h1>
+          <p class="text-muted">Just type naturally — AI will understand</p>
+        </header>
+
+        <!-- Input Section -->
+        <form id="taskForm" class="mb-4">
+          <div class="input-group input-group-lg">
+            <input 
+              type="text" 
+              id="taskInput" 
+              class="form-control" 
+              placeholder="Enter a task..."
+              autocomplete="off" 
+              required>
+            <button class="btn btn-success" type="submit">
+              <i class="fas fa-plus"></i>
+            </button>
+          </div>
+        </form>
+
+        <!-- AI Preview -->
+        <div id="aiPreview" class="alert alert-success d-none small">
+          <i class="fas fa-brain me-2"></i>
+          <strong>AI Detected:</strong> <span id="aiPreviewText"></span>
+        </div>
+
+        <!-- Example Prompts -->
+        <div class="mb-4">
+          <h6 class="text-success mb-2">
+            <i class="fas fa-lightbulb me-1"></i> Try:
+          </h6>
+          <div class="d-flex flex-wrap gap-2">
+            <span class="example-item" data-text="Breakfast on the 13th">Breakfast on the 13th</span>
+            <span class="example-item" data-text="Meeting tomorrow 3pm">Meeting tomorrow 3pm</span>
+            <span class="example-item" data-text="Gym on Friday at 6:30">Gym on Friday at 6:30</span>
+            <span class="example-item" data-text="Doctor appointment next Monday">Doctor appointment next Monday</span>
+          </div>
+        </div>
+
+        <!-- Loading Indicator -->
+        <div id="loadingIndicator" class="text-center d-none mb-4">
+          <div class="spinner-border text-success" role="status"></div>
+          <p class="text-muted mt-2 small">AI is processing your task...</p>
+        </div>
+
+        <!-- Tasks Section -->
+        <section class="mb-4">
+          <h5 class="fw-semibold mb-3">
+            <i class="fas fa-calendar-check me-2 text-success"></i>Your Tasks
+            <span id="taskCount" class="badge bg-success-subtle text-success">0</span>
+          </h5>
+          <div id="tasksContainer" class="border rounded p-3 bg-light">
+            <div id="emptyState" class="text-center py-4">
+              <i class="fas fa-clipboard-list fa-2x text-muted mb-2"></i>
+              <p class="text-muted mb-0">No tasks yet. Add your first one above.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Stats Section -->
+        <div class="row text-center g-3">
+          <div class="col">
+            <div class="p-3 border rounded">
+              <i class="fas fa-tasks text-success mb-2"></i>
+              <div id="totalTasks" class="fw-bold">0</div>
+              <small class="text-muted">Total</small>
+            </div>
+          </div>
+          <div class="col">
+            <div class="p-3 border rounded">
+              <i class="fas fa-check-circle text-success mb-2"></i>
+              <div id="completedTasks" class="fw-bold">0</div>
+              <small class="text-muted">Completed</small>
+            </div>
+          </div>
+          <div class="col">
+            <div class="p-3 border rounded">
+              <i class="fas fa-clock text-success mb-2"></i>
+              <div id="pendingTasks" class="fw-bold">0</div>
+              <small class="text-muted">Pending</small>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+  <!-- Custom JS -->
+  <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>

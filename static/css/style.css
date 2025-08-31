@@ -1,0 +1,187 @@
+.task-original {
+    background: var(--light-gray);
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    color: #6c757d;
+    font-style: italic;
+    margin-top: 10px;
+}
+
+/* Example Items */
+.example-item {
+    cursor: pointer;
+    padding: 4px 8px;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+    display: inline-block;
+    border: 1px solid transparent;
+}
+
+.example-item:hover {
+    background: var(--light-green);
+    color: var(--dark-green);
+    border-color: var(--primary-green);
+    transform: scale(1.02);
+}
+
+/* AI Preview */
+#aiPreview {
+    border: 2px solid var(--primary-green);
+    background: rgba(40, 167, 69, 0.05);
+    animation: fadeInDown 0.3s ease;
+}
+
+/* Loading Indicator */
+#loadingIndicator {
+    animation: fadeIn 0.3s ease;
+}
+
+/* Stats Cards */
+.card .fa-2x {
+    opacity: 0.8;
+}
+
+/* Animations */
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Button Group */
+.btn-group-sm .btn {
+    padding: 0.25rem 0.75rem;
+    font-size: 0.8rem;
+}
+
+.btn-outline-success:hover {
+    background: var(--primary-green);
+    border-color: var(--primary-green);
+}
+
+.btn-outline-danger:hover {
+    background: #dc3545;
+    border-color: #dc3545;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .display-4 {
+        font-size: 2rem;
+    }
+    
+    .task-meta {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .input-group {
+        flex-direction: column;
+    }
+    
+    .input-group .btn {
+        border-radius: 0 0 0.375rem 0.375rem !important;
+        margin-top: 0.5rem;
+    }
+}
+
+/* Empty State */
+#emptyState {
+    color: #6c757d;
+}
+
+#emptyState .fa-3x {
+    opacity: 0.5;
+}
+
+/* Success Animations */
+.task-added {
+    animation: pulse 0.6s ease;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+:root {
+  --primary-green: #28a745;
+  --light-green: #e9f9f0;
+  --light-gray: #f8f9fa;
+}
+
+body {
+  background: #fff;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  color: #212529;
+}
+
+/* Example Items */
+.example-item {
+  cursor: pointer;
+  padding: 4px 10px;
+  font-size: 0.85rem;
+  border-radius: 6px;
+  border: 1px solid #dee2e6;
+  background: #fff;
+  transition: 0.2s;
+}
+.example-item:hover {
+  background: var(--light-green);
+  border-color: var(--primary-green);
+  color: var(--primary-green);
+}
+
+/* AI Preview */
+#aiPreview {
+  border: 1px solid var(--primary-green);
+  background: var(--light-green);
+}
+
+/* Tasks Section */
+#tasksContainer {
+  background: #fff;
+  min-height: 120px;
+}
+#emptyState i {
+  opacity: 0.5;
+}
+
+/* Stats */
+#totalTasks, #completedTasks, #pendingTasks {
+  font-size: 1.25rem;
+  color: var(--primary-green);
+}
